@@ -3,7 +3,6 @@
 public class UI {
     // todo: initialize the Scanner attribute
 
-
     // todo: write displayMsg method
     //  1) use System.out.println to display the message parametre to the user
 
