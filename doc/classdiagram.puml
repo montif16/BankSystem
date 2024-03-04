@@ -2,7 +2,6 @@
 class Main{
 + static UI ui
 + static void main(String[] args)
-
 }
 
 
