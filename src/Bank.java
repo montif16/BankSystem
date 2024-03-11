@@ -1,41 +1,79 @@
+import java.util.ArrayList;
 
 public class Bank {
-    //todo: add attributes as per the class diagram
-
+ private String name;
+ private ArrayList<Customer> customers;
+ private ArrayList<String> listOfActions;
+ private Customer currentCustomer;
 
     public Bank(String name){
-        //todo:
-        // 1) instantiate the two ArrayLists
-        // 2) add the following actions to the list of actions
-        // - Opret kunde
-        // - Se Kontooversigt
-        // - Se Kontoposteringer
-        // - Indsæt/hæv penge
-        // - Opret ny konto
-        // - Vælg eksisterende kunde
-        // - Afslut
-
-
-
+        this.name = name;
+        customers = new ArrayList<>();
+        listOfActions = new ArrayList<>();
+        listOfActions.add("1) Opret kunde");
+        listOfActions.add("2) Vis kunder");
+        listOfActions.add("3) Se Kontoposteringer");
+        listOfActions.add("4) Indsæt/hæv penge");
+        listOfActions.add("5) Opret ny konto");
+        listOfActions.add("6) Vælg eksisterende kunde");
+        listOfActions.add("7) afslut");
     }
-    private void createCustomer(String name){
-        //todo:
-        // 1) create an instance of the Customer class and assign it to the currentCustomer attribute of this class
-        // 2) add it to the list of customers
+    public void createCustomer(String name, int balance){
 
+        currentCustomer =  new Customer(name, balance);
+        this.customers.add(currentCustomer);
     }
     public void userDialog(){
-        // todo:
-        //  1) display a welcome message using the displayMsg method of the ui object in Main
-        //  2) initialize an int variable 'action' with the value of 0 (will hold the user's choice of action)
-        //  3) create a while loop that will run until action is equal to the value of 7 (the quit action).
-        //  4) inside the while loop, ask the user to choose an action using the promptChoice method of the ui object in Main
+        Main.ui.displayMsg("Velkommen til "+this.name);
+        int action = 0;
+
+        while(action != listOfActions.size()){// the quit action is the last action
+         action = Main.ui.promptChoice(listOfActions, "Vælg en af følgende:");
+
+         switch(action){
+             case 1: //Opret kunde
+
+
+                  String name =  Main.ui.promptText("Kundens navn: ");
+                  createCustomer(name, 0);
+
+
+
+                 break;
+              case 2: // Se kontooversigt
+                  //System.out.println(currentCustomer);
+                  for(Customer c: customers){
+                      System.out.println(c);
+                  }
+
+
+                  break;
+             case 3: // Se kontoposteringer
+                  break;
+             case 4:
+                 int amount = Main.ui.promptNumeric("Skriv beløb");
+                 currentCustomer.deposit(amount);
+                 //Indsæt/Hæv penge
+                 break;
+             case 5: //Opret ny konto
+                 break;
+             case 6: //Vælg eksisterende
+
+                 //få bruger til at give id (index) på kunde
+                 int index = Main.ui.promptNumeric("Tast kundends ID: ");
+                 //hent kunden ud af customersArrayet
+                 //sæt currentCusto til denne kunde
+                 break;
+         }
+
+        }
+
+
         //  5) create a switch-case statement that looks at the action variable and has a case for each of the 6 first actions in the list of actions
 
-        // todo:
-        //  6) case 1 :
-        //  a. prompt the user for a customer name
-        //  b create an instance of the Customer class with the name retrieved from the user
+
+
+//__________________________________
 
         // todo:
         //  7) case 2 :
@@ -63,7 +101,14 @@ public class Bank {
         //  b. retrieve the customer object from the list of customers and assign it to the currentCustomer attribute of this class
 
     }
+public String toString(){
+        String output = "";
+        for(Customer c: customers){
+            output = c.toString();
+        }
+        return output;
 
+}
 
 
 }

@@ -1,12 +1,33 @@
-//todo: import package utils
+import utils.UI;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Main {
-    //todo: initialize attribute as per the class diagram
+
+    static UI ui = new UI();
 
     public static void main(String[] args) {
-        //todo
-        // 1) create an instance of Bank
-        // 2) call the userDialog method on the Bank instance
+       Bank bank = new Bank("Lollandsbanken");
 
+        File file = new File("data/customers.csv");
+        try {
+            Scanner scan = new Scanner(file);
+            scan.nextLine();//header
+
+            while(scan.hasNextLine()){
+                String s = scan.nextLine(); // "tess, 40000"
+                String[] line= s.split(",");
+                String name = line[0];
+                int balance = Integer.parseInt(line[1].trim());
+                bank.createCustomer(name,balance);
+
+            }
+
+        }catch(FileNotFoundException e){
+            System.out.println("File was not found");
+        }
+
+        bank.userDialog();
     }
 }
