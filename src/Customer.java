@@ -57,6 +57,13 @@ public void deposit(int amount){
         return this.name+", "+this.currentAccount.getBalance();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Account getCurrentAccount() {
+        return currentAccount;
+    }
     //todo: write the setCurrentAccount method
     // 1) assign the passed value to the currentAccount attribute
 

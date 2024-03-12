@@ -2,6 +2,7 @@ import utils.UI;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Main {
@@ -25,6 +26,8 @@ public class Main {
             throw new RuntimeException(e);
         }
         bank.userDialog();
+        bank.writeCustomers();
+
 
     }
 }

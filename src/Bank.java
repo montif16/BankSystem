@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,7 +12,7 @@ public class Bank {
     Customer currentCustomer;
 
 
-    public Bank(String name){
+    public Bank(String name) {
         //todo:
         customers = new ArrayList<>();
         listOfActions = new ArrayList<>();
@@ -119,7 +123,17 @@ public class Bank {
 
 
     }
+    public void writeCustomers() {
 
 
+        try {
+            boolean fileExists = new File("data/customers.csv").exists();
+            FileWriter writer = new FileWriter("data/customers.csv",true);
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+
+            if(!fileExists){
+                bufferedWriter.write("name,Balance\n");
+            }
+            for (Customer customer : customers) {
 
 }
