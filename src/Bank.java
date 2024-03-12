@@ -98,7 +98,7 @@ public class Bank {
                 case 6: // Vælg eksisterende
                     // todo:
                     //  11) case 6 :
-                    //  a. ask the user to type the id (index number) of the customer
+                    //   a. ask the user to type the id (index number) of the customer
                     //  b. retrieve the customer object from the list of customers and assign it to the currentCustomer attribute of this class
                     int input = Main.ui.promptNumeric("Type your index");
                     currentCustomer = customers.get(input-1);
