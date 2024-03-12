@@ -9,17 +9,18 @@ class Bank{
  - String name
  - ArrayList<Customer> customers
  - ArrayList<String> listOfActions
- + Bank(String name)
  - Customer currentCustomer
+ + Bank(String name)
  - void createCustomer(String name)
  + void userDialog()
+ + void toString()
 }
 
 class Customer{
 - String name
 - ArrayList<Account> accounts
 - Account currentAccount
-+ Customer()
++ Customer(String name)
 + void createAccount(String name)
 + void deposit(int amount)
 + String getAccountDetails(int accountID)
@@ -31,6 +32,7 @@ class Account{
 - int balance
 + Account(String name)
 + void setBalance(int amount)
++ int getBalance();
 + String toString()
 + String getName()
 }
