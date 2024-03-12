@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class Bank {
@@ -136,4 +137,16 @@ public class Bank {
             }
             for (Customer customer : customers) {
 
+                bufferedWriter.write(customer.getName()+","+ customer.getCurrentAccount().getBalance() + "\n");
+            }
+            bufferedWriter.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
 }
