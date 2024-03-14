@@ -10,7 +10,8 @@ public class Main {
         static UI ui = new UI();
     public static void main(String[] args) {
         Bank bank = new Bank("Lollandsbanken");
-        File file = new File("data/customers.csv");
+        String path = "data/customers.csv";
+        File file = new File(path);
         try {
             Scanner scan = new Scanner(file);
             scan.nextLine();
